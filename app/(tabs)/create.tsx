@@ -49,7 +49,10 @@ const handleShare = async()=>{
     if(uploadResult.status !== 200) throw new Error("Upload failed");
 
     const {storageId} = JSON.parse(uploadResult.body);
-    await createPost({storageId,caption})
+    await createPost({storageId,caption});
+
+    setSelectedImage(null);
+    setCaption("");
 
     router.push("/(tabs)")
 
